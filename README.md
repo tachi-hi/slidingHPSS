@@ -22,10 +22,11 @@ How to use (on UNIX like system.)
 + Install `FFTW3` (`libfftw3`) in your system.
 
 Then type the command
+
 	make
 	./slidingHPSS -h
 
-then usage command will be displayed.
+then usage massage will be displayed.
 
 License
 -------
