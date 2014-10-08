@@ -5,7 +5,7 @@
 #include<complex>
 #include<cmath>
 
-#include<omp.h>
+//#include<omp.h>
 
 #include"slideBlock.hpp"
 #include"myfft.h"
@@ -181,7 +181,7 @@ void HPSS::pop(double *Hout, double *Pout){
   W->pop(&(amplitude[0])); // used
   phaseSpec->pop(&(phase[0]));// used
   maskH->pop(&(Hout[0])); // used
-  maskP->pop(&(Pout[0])); // usedB
+  maskP->pop(&(Pout[0])); // usedÂB
 
   // amplitude
   for(int j = 0; j < frame_length/2 + 1; j++){
