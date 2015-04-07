@@ -18,15 +18,35 @@ in which it is applied twice with different parameter sets.
 How to use (on UNIX like system.)
 ---------------------------------
 
-+ Download the codes.
-+ Install `FFTW3` (`libfftw3`) in your system.
+### Build
 
-Then type the command
+Download the codes.
+
+	cd your_working_directory
+	git clone https://github.com/tachi-hi/slidingHPSS
+
+Install `FFTW3` (`libfftw3`) in your system. If you are an Ubuntu user,
+
+	apt-get install libfftw3-dev
+
+Then type the follwoing commands to build the code and execute the obtained binary.
 
 	make
 	./slidingHPSS -h
 
 then usage massage will be displayed.
+
+### Preprocessing: Stereo 44.1kHz MP3 -> Mono 16kHz WAV
+
+`YourMP3file.mp3` is converted to a suitable format by following commands.
+
+	mpg123 -w wavefile_tmp.wav yourMP3file.mp3
+	sox wavfile.wav -r 16000 -c 1 input.wav
+
+### Singing Voice Enhancement
+
+Just run the script file `twostageHPSS.sh`. The file named `input.wav` in the working directory will be separated into three files named `_H.wav`, `_P.wav`, and `_V.wav`.
+
 
 License
 -------
