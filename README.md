@@ -49,12 +49,16 @@ then usage massage will be displayed.
 Just run the script file `twostageHPSS.sh`. The file named `input.wav` in the working directory will be separated into three files named `_H.wav`, `_P.wav`, and `_V.wav`.
 
 
-License
--------
-Free.
+## License
+Free
 
-Academic Use
-------------
+### Academic Use
 Please cite one of the papers above.
 
+## Links
+
+### Other implementations of HPSS
+
++ [(non-sliding) HPSS](https://github.com/tachi-hi/HPSS)
++ [HPSS with GUI](http://hil.t.u-tokyo.ac.jp/software/HPSS/)
 
