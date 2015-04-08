@@ -41,7 +41,8 @@ then usage massage will be displayed.
 `YourMP3file.mp3` is converted to a suitable format by following commands.
 
 	mpg123 -w wavefile_tmp.wav yourMP3file.mp3
-	sox wavfile.wav -r 16000 -c 1 input.wav
+	sox wavfile_tmp.wav -r 16000 -c 1 input.wav
+	rm wavfile_tmp.wav
 
 ### Singing Voice Enhancement
 
@@ -55,4 +56,5 @@ Free.
 Academic Use
 ------------
 Please cite one of the papers above.
+
 
