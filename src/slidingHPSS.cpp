@@ -53,8 +53,8 @@ int main(int argc, char **argv){
       cerr << " --block  [-b] <arg>\t Block size of the HPSS, default: 30" << endl;
       cerr << " --sigmaH [-Q] <arg>\t H weighting constant of the HPSS, default: 0.3" << endl;
       cerr << " --sigmaP [-W] <arg>\t P weighting constant of the HPSS, default: 0.3" << endl;
-      cerr << "(c) Hideyuki Tachibana 2008--2011." << endl;
-      cerr << "tachibana@hil.t.u-tokyo.ac.jp" << endl;
+      cerr << "(c) Hideyuki Tachibana 2008--2011, 2014" << endl;
+      cerr << "contact: http://github.com/tachi-hi" << endl;
       exit(1);
     }
     case'i':{input_file_name = optarg; break;}
