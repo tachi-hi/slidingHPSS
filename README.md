@@ -20,7 +20,7 @@ How to use (on UNIX like system.)
 
 ### Build
 
-Download the codes.
+Download the codes as follows.
 
 	cd your_working_directory
 	git clone https://github.com/tachi-hi/slidingHPSS
@@ -31,8 +31,8 @@ Install `FFTW3` (`libfftw3`) in your system. If you are an Ubuntu user,
 
 Then type the follwoing commands to build the code and execute the obtained binary.
 
-	make
-	./slidingHPSS -h
+	bash setup.sh
+	./bin/slidingHPSS -h
 
 then usage massage will be displayed.
 
@@ -46,7 +46,7 @@ then usage massage will be displayed.
 
 ### Singing Voice Enhancement
 
-Just run the script file `twostageHPSS.sh`. The file named `input.wav` in the working directory will be separated into three files named `_H.wav`, `_P.wav`, and `_V.wav`.
+Just run the script file `twostageHPSSscripts/twostageHPSS.sh`. The file named `input.wav` in the working directory will be separated into three files named `_H.wav`, `_P.wav`, and `_V.wav`.
 
 ### Singing Voice Suppression
 
