@@ -1,5 +1,5 @@
 CXX = g++
-CXXFLAGS = -O3 -Wall -pg -g 
+CXXFLAGS = -O3 -Wall #-pg -g 
 RM = rm -f
 
 EXE = slidingHPSS 
