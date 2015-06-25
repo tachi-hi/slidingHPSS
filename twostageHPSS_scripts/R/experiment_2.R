@@ -10,11 +10,6 @@ postscript(file="NSDR_HPF_boxplot.eps",horiz=F,height=10,width=8,pointsize=20, f
 par(mai=c(1.5,1.5,0.5,0.5),omi=c(0,0,0,0))
 boxplot(t(NSDR_HPF[5:1,]), xlab="input SNR [dB]", ylab="NSDR [dB]", names=-2:2*5)
 dev.off();
-
-postscript(file="NSDR_Comb_boxplot.eps",horiz=F,height=10,width=8,pointsize=20, family="Times")
-par(mai=c(1.5,1.5,0.5,0.5),omi=c(0,0,0,0))
-boxplot(t(NSDR_Comb[5:1,]), xlab="input SNR [dB]", ylab="NSDR [dB]", names=-2:2*5)
-dev.off();
 }
 
 
@@ -40,9 +35,6 @@ ours1 <- c(GNSDR(NSDR_alone[4,], weight),
 ours2 <- c(GNSDR(NSDR_HPF[4,], weight), 
           GNSDR(NSDR_HPF[3,], weight), 
           GNSDR(NSDR_HPF[2,], weight))
-ours3 <- c(GNSDR(NSDR_Comb[4,], weight), 
-          GNSDR(NSDR_Comb[3,], weight), 
-          GNSDR(NSDR_Comb[2,], weight))
 
 # 従来法のGNSDRのプロット, 値は論文から読み取ったもの
 hsu <- c(-0.5, 0.9, 0.2)

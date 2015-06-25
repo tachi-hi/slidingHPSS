@@ -60,32 +60,6 @@ HPSS <- function(data, frame, q, w){
   tmp <- readWave("./tmp/_P.wav"); P <- tmp@left[range];
   return(list(H=H, P=P));
 }
-CombFilter <- function(data){
-  out <- Wave(data, samp.rate=16000, bit=16);
-  writeWave(out,"./tmp/_input.wav");
-  writeWave(out,"./test2.wav"); 
-
-  cmdline <- paste("./wavelet+comb --input ./tmp/_input.wav");
-  system(cmdline);
-  print(cmdline);
-
-  tmp <- readWave("./_filtered.wav"); comb <- tmp@left[1:length(data)];
-  return (comb);
-}
-
-# 正解データを使ってくし形フィルタ
-CombFilter_seikai <- function(data){
-  out <- Wave(data, samp.rate=16000, bit=16);
-  writeWave(out,"./tmp/_input.wav");
-  writeWave(out,"./test2.wav"); # wavelet+combの内部で同じデータが必要（かどうかは未確認）
-
-  cmdline <- paste("./wavelet+comb --input ./tmp/_input.wav");
-  system(cmdline);
-  print(cmdline);
-
-  tmp <- readWave("./_filtered.wav"); comb <- tmp@left[1:length(data)];
-  return (comb);
-}
 
 MSHPSS <- function(data, frame1, frame2){
   hp1 <- HPSS(data, frame1, 0.3, 0.3);
@@ -100,9 +74,7 @@ MSHPSS <- function(data, frame1, frame2){
   tmp[,16000/512*(1:257-1) < 110] <- 0;
   Filtered <- istft.half(tmp, 256)[512+ 1:length(P2)]
 
-  comb <- CombFilter(P2);
-
-  return(list(V=P2,F=Filtered,C=comb,NV=P1+H2));
+  return(list(V=P2,F=Filtered,NV=P1+H2));
 }
 
 #######################################################################
@@ -192,12 +164,6 @@ for(file in fs1){
   writeWave(normalize(Wave(VNV_m5$F, samp.rate=16000, bit=16),unit="16") * 0.9,  sprintf("./tmp/Fm5_%s", file));
   writeWave(normalize(Wave(VNV_m10$F, samp.rate=16000, bit=16),unit="16") * 0.9, sprintf("./tmp/Fm10_%s", file));
 
-  writeWave(normalize(Wave(VNV_p10$C, samp.rate=16000, bit=16),unit="16") * 0.9, sprintf("./tmp/Cp10_%s", file));
-  writeWave(normalize(Wave(VNV_p5$C, samp.rate=16000, bit=16),unit="16") * 0.9,  sprintf("./tmp/Cp5_%s", file));
-  writeWave(normalize(Wave(VNV_0$C, samp.rate=16000, bit=16),unit="16") * 0.9,   sprintf("./tmp/C0_%s", file));
-  writeWave(normalize(Wave(VNV_m5$C, samp.rate=16000, bit=16),unit="16") * 0.9,  sprintf("./tmp/Cm5_%s", file));
-  writeWave(normalize(Wave(VNV_m10$C, samp.rate=16000, bit=16),unit="16") * 0.9, sprintf("./tmp/Cm10_%s", file));
-
   writeWave(normalize(Wave(VNV_p10$NV, samp.rate=16000, bit=16),unit="16") * 0.9, sprintf("./tmp/NVp10_%s", file));
   writeWave(normalize(Wave(VNV_p5$NV, samp.rate=16000, bit=16),unit="16") * 0.9,  sprintf("./tmp/NVp5_%s", file));
   writeWave(normalize(Wave(VNV_0$NV, samp.rate=16000, bit=16),unit="16") * 0.9,   sprintf("./tmp/NV0_%s", file));
@@ -215,11 +181,6 @@ for(file in fs1){
   VNV_0$F <-   readWave(sprintf("./tmp/F0_%s", file))@left;
   VNV_m5$F <-  readWave(sprintf("./tmp/Fm5_%s", file))@left;
   VNV_m10$F <- readWave(sprintf("./tmp/Fm10_%s", file))@left;
-  VNV_p10$C <- readWave(sprintf("./tmp/Cp10_%s", file))@left;
-  VNV_p5$C <-  readWave(sprintf("./tmp/Cp5_%s", file))@left;
-  VNV_0$C <-   readWave(sprintf("./tmp/C0_%s", file))@left;
-  VNV_m5$C <-  readWave(sprintf("./tmp/Cm5_%s", file))@left;
-  VNV_m10$C <- readWave(sprintf("./tmp/Cm10_%s", file))@left;
   VNV_p10$NV <- readWave(sprintf("./tmp/NVp10_%s", file))@left;
   VNV_p5$NV <-  readWave(sprintf("./tmp/NVp5_%s", file))@left;
   VNV_0$NV <-   readWave(sprintf("./tmp/NV0_%s", file))@left;
@@ -250,16 +211,6 @@ for(file in fs1){
   print(sprintf("SDR (-5dB)  = %f [dB]",NSDR_HPF[4,i]));
   print(sprintf("SDR (-10dB) = %f [dB]",NSDR_HPF[5,i]));
 
-  NSDR_Comb[1,i] = NSDR(VNV_p10$C, singer, out_p10@left)
-  NSDR_Comb[2,i] = NSDR(VNV_p5$C, singer, out_p5@left)
-  NSDR_Comb[3,i] = NSDR(VNV_0$C, singer, out_0@left)
-  NSDR_Comb[4,i] = NSDR(VNV_m5$C, singer, out_m5@left)
-  NSDR_Comb[5,i] = NSDR(VNV_m10$C, singer, out_m10@left)
-  print(sprintf("SDR (+10dB) = %f [dB]",NSDR_Comb[1,i]));
-  print(sprintf("SDR (+5dB)  = %f [dB]",NSDR_Comb[2,i]));
-  print(sprintf("SDR ( 0dB)  = %f [dB]",NSDR_Comb[3,i]));
-  print(sprintf("SDR (-5dB)  = %f [dB]",NSDR_Comb[4,i]));
-  print(sprintf("SDR (-10dB) = %f [dB]",NSDR_Comb[5,i]));
 }
 
 
