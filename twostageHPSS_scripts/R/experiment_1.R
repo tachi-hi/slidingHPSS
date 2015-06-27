@@ -51,7 +51,7 @@ HPSS <- function(data, frame, q, w){
 	out <- Wave(data, samp.rate=16000, bit=16);
 	writeWave(out,"./tmp/_input.wav");
 
-	cmdline <- paste("./HPSS --input ./tmp/_input.wav --block 100 --frame ", frame, 
+	cmdline <- paste("./slidingHPSS --input ./tmp/_input.wav --block 100 --frame ", frame, 
 		 " --Hout ./tmp/_H.wav --Pout ./tmp/_P.wav -Q ", q , " -W ", w, sep="");
 	system(cmdline);
 	print(cmdline);
@@ -71,11 +71,12 @@ MSHPSS <- function(data, frame1, frame2){
 	H2 <- hp2$H;
 	P2 <- hp2$P;
 
+	# High Pass Filter
 	tmp <- stft.half(c(runif(1:512), P2, runif(1:512)),512, 256);
 	tmp[,16000/512*(1:257-1) < 110] <- 0;
 	Filtered <- istft.half(tmp, 256)[512+ 1:length(P2)]
 
-	return(list(V=P2,F=Filtered,NV=P1+H2));
+	return(list(V=P2, F=Filtered, NV=P1+H2));
 }
 
 #######################################################################
