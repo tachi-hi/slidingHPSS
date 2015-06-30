@@ -91,11 +91,10 @@ MSHPSS <- function(data, frame1, frame2){
 #  Statistics
 #    (frame-wise), file-wise, (singer-wise)
 
-fs1 <- list.files("./MIR-1K/UndividedWavfile")
+fs1 <- list.files("./MIR-1K_for_MIREX/Wavfile/")
 
 NSDR_alone <- matrix(0, 5, length(fs1))
 NSDR_HPF <-   matrix(0, 5, length(fs1))
-NSDR_Comb <-  matrix(0, 5, length(fs1))
 
 if(0){
 	SNRS1 <- matrix(0, 5, length(fs1));
@@ -118,7 +117,7 @@ for(file in fs1){
 	print(sprintf("Files: %d / %d", i, length(fs1)));
 
 	print(file);
-	tmp <- readWave(sprintf("./MIR-1K/UndividedWavfile/%s",file));
+	tmp <- readWave(sprintf("./MIR-1K_for_MIREX/Wavfile/%s",file));
 	accomp <- tmp@left;
 	singer <- tmp@right;
 	input_p10 <- accomp + singer * 10**0.5; 	# 10dB

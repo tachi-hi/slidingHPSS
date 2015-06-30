@@ -11,12 +11,12 @@ then mkdir $YOUR_WORKING_DIRECTORY; fi
 if [ ! -d $YOUR_WORKING_DIRECTORY/tmp ];
 then mkdir $YOUR_WORKING_DIRECTORY/tmp; fi
 
-if [ ! -d $YOUR_WORKING_DIRECTORY/MIR-1K ];
-then mkdir $YOUR_WORKING_DIRECTORY/MIR-1K
-touch $YOUR_WORKING_DIRECTORY/MIR-1K/place_here_MIR1K_data; fi
+if [ ! -d $YOUR_WORKING_DIRECTORY/MIR-1K_for_MIREX ];
+then mkdir $YOUR_WORKING_DIRECTORY/MIR-1K_for_MIREX
+touch $YOUR_WORKING_DIRECTORY/MIR-1K_for_MIREX/place_here_MIR1K_data; fi
 
-if [ ! -d $YOUR_WORKING_DIRECTORY/MIR-1K/UndividedWavfile ];
-then mkdir $YOUR_WORKING_DIRECTORY/MIR-1K/UndividedWavfile; fi
+if [ ! -d $YOUR_WORKING_DIRECTORY/MIR-1K_for_MIREX/Wavfile ];
+then mkdir $YOUR_WORKING_DIRECTORY/MIR-1K_for_MIREX/Wavfile; fi
 
 
 cp ./bin/slidingHPSS $YOUR_WORKING_DIRECTORY

@@ -39,7 +39,7 @@ if(!PASS){
   weight <- c(0);
   i <- 1;
   for(file in fs1){
-  	tmp <- readWave(sprintf("./MIR-1K/UndividedWavfile/%s",file));
+  	tmp <- readWave(sprintf("./MIR-1K_for_MIREX/Wavfile/%s",file));
   	weight[i] <- length(tmp@left);
     i <- i + 1;
   }
