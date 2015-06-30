@@ -2,7 +2,7 @@
 
 source("./Rlib/mylib.R");
 
-HPSS_done <- 1;
+HPSS_done <- 0; # 0: not done, 1: done
 
 len <- 512;
 shi <- 256;
