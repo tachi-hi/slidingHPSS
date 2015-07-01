@@ -30,5 +30,8 @@ fi
 
 cp ./bin/slidingHPSS $YOUR_WORKING_DIRECTORY
 cp -r ./twostageHPSS_scripts/R/* $YOUR_WORKING_DIRECTORY
+if [ ! -e $YOUR_WORKING_DIRECTORY/my_experiment_1.R ];
+then cp ./twostageHPSS_scripts/R/experiment_1.R $YOUR_WORKING_DIRECTORY/my_experiment_1.R; fi
 
-
+if [ ! -e $YOUR_WORKING_DIRECTORY/my_experiment_2.R ];
+then cp ./twostageHPSS_scripts/R/experiment_2.R $YOUR_WORKING_DIRECTORY/my_experiment_2.R; fi
