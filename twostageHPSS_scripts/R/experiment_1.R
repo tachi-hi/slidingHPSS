@@ -96,22 +96,7 @@ fs1 <- list.files("./MIR-1K_for_MIREX/Wavfile/")
 NSDR_alone <- matrix(0, 5, length(fs1))
 NSDR_HPF <-   matrix(0, 5, length(fs1))
 
-if(0){
-	SNRS1 <- matrix(0, 5, length(fs1));
-	SNRS2 <- matrix(0, 5, length(fs1));
-	SNRS3 <- matrix(0, 5, length(fs1));
-	SDRS1 <- matrix(0, 5, length(fs1));
-
-	SDRS0 <- matrix(0, 5, length(fs1));
-	SNRS0 <- matrix(0, 5, length(fs1));
-
-	SDRS2 <- matrix(0, 5, length(fs1));
-	SDRS3 <- matrix(0, 5, length(fs1));
-	SNRS12 <- matrix(0, 5, length(fs1));
-	SNRS22 <- matrix(0, 5, length(fs1));
-}
 i = 0;
-
 for(file in fs1){
 	i <- i + 1;
 	print(sprintf("Files: %d / %d", i, length(fs1)));
