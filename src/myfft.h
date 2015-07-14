@@ -58,7 +58,7 @@ public:
   void exec(){
     fftw_execute(p);
     for(int i = 0; i < size; i++){
-      out[i] /= (static_cast<double>(size)/2 + 1);
+      out[i] /= static_cast<double>(size); // bug? (static_cast<double>(size)/2 + 1); 
     }
   }
 
