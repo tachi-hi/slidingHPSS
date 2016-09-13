@@ -64,8 +64,11 @@ Please cite one of the papers above.
 
 ### Other implementations of HPSS
 
-+ [(non-sliding) HPSS](https://github.com/tachi-hi/HPSS)
-+ [HPSS with GUI](http://hil.t.u-tokyo.ac.jp/software/HPSS/)
++ Our group
+	+ [(non-sliding) HPSS](https://github.com/tachi-hi/HPSS)
+	+ [HPSS with GUI](http://hil.t.u-tokyo.ac.jp/software/HPSS/)
++ Others
+	+ [librosa](http://librosa.github.io/librosa/): This audio library for Python contains a variant of HPSS.
 
 ### Data
 + [MIR-1K](https://sites.google.com/site/unvoicedsoundseparation/mir-1k)
