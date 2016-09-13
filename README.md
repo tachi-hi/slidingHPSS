@@ -54,6 +54,8 @@ You can similarly obtain a "karoake" signal just by mixing the two files `_H.wav
 
 	sox -m _H.wav _P.wav _karaoke.wav
 
+See also [euterpe](https://github.com/tachi-hi/euterpe), an automatic audio-to-audio karaoke system.
+
 ## License
 Free
 
@@ -66,6 +68,7 @@ Please cite one of the papers above.
 
 + Our group
 	+ [(non-sliding) HPSS](https://github.com/tachi-hi/HPSS)
+	+ [vocal suppression based on multi-stage HPSS ("euterpe")](https://github.com/tachi-hi/euterpe)
 	+ [HPSS with GUI](http://hil.t.u-tokyo.ac.jp/software/HPSS/)
 + Others
 	+ [librosa](http://librosa.github.io/librosa/): This audio library for Python contains a variant of HPSS.
