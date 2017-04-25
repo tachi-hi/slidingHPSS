@@ -69,7 +69,7 @@ Please cite one of the papers above.
 + Our group
 	+ [(non-sliding) HPSS](https://github.com/tachi-hi/HPSS)
 	+ [vocal suppression based on multi-stage HPSS ("euterpe")](https://github.com/tachi-hi/euterpe)
-	+ [HPSS with GUI](http://hil.t.u-tokyo.ac.jp/software/HPSS/)
+	+ HPSS with GUI (http://hil.t.u-tokyo.ac.jp/software/) ... [expired link]
 + Others
 	+ [librosa](http://librosa.github.io/librosa/): This audio library for Python contains a variant of HPSS.
 
